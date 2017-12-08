@@ -1,5 +1,6 @@
 #!/bin/sh
 
+/usr/local/s2i/assemble
 # Source code provided to STI is at ${HOME}/source
 LOCAL_SOURCE_DIR=${HOME}/source
 mkdir -p $LOCAL_SOURCE_DIR
@@ -70,12 +71,13 @@ if [ -d $LOCAL_SOURCE_DIR/configuration ]; then
   cp -v $LOCAL_SOURCE_DIR/configuration/* $JWS_HOME/conf/
 fi
 
-git clone https://github.com/juantimonescalona/poc_appdynamics_tomcat.git
-mkdir -p /opt/appdynamics
-chgrp -R 0 /opt/appdynamics/
-chmod -R g+rw /opt/appdynamics/
-find /opt/appdynamics/ -type d -exec chmod g+x {} +
-cp -r  poc_appdynamics_tomcat/src/main/docker/appdynamics /opt/appdynamics/
-mkdir /deployments/logs
-chgrp -R 0 /deployments/logs/
-chmod -R g+rw /deployments/logs/
+
+# install appdynamics agent
+curl -H "Accept: application/zip" https://codeload.github.com/juantimonescalona/poc_appdynamics_tomcat/zip/master -o /deployments/appdynamics.zip
+
+pushd /deployments
+unzip appdynamics.zip
+    mv poc_appdynamics_tomcat-master/src/docker/appdynamics /deployments
+    rm -rf poc_appdynamics_tomcat
+    rm -f appdynamics.zip
+popd
