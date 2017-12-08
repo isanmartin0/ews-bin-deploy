@@ -69,3 +69,13 @@ if [ -d $LOCAL_SOURCE_DIR/configuration ]; then
   echo "Copying config files from project..."
   cp -v $LOCAL_SOURCE_DIR/configuration/* $JWS_HOME/conf/
 fi
+
+git clone https://github.com/juantimonescalona/poc_appdynamics_tomcat.git
+mkdir -p /opt/appdynamics
+chgrp -R 0 /opt/appdynamics/
+chmod -R g+rw /opt/appdynamics/
+find /opt/appdynamics/ -type d -exec chmod g+x {} +
+cp -r  poc_appdynamics_tomcat/src/main/docker/appdynamics /opt/appdynamics/
+mkdir /deployments/logs
+chgrp -R 0 /deployments/logs/
+chmod -R g+rw /deployments/logs/
