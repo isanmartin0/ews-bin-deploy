@@ -78,6 +78,6 @@ curl -H "Accept: application/zip" https://codeload.github.com/juantimonescalona/
 pushd /deployments
 unzip appdynamics.zip
     mv poc_appdynamics_tomcat-master/src/main/docker/appdynamics /deployments
-    rm -rf poc_appdynamics_tomcat
+    rm -rf poc_appdynamics_tomcat-master
     rm -f appdynamics.zip
 popd
