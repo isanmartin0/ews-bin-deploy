@@ -20,7 +20,7 @@ function copy_artifacts() {
 
 # Copy the source for compilation
 cp -ad /tmp/src/* $LOCAL_SOURCE_DIR
-whoami
+
 # If a pom.xml is present, this is a normal build scenario
 # so run maven.
 if [ -f "$LOCAL_SOURCE_DIR/pom.xml" ]; then
@@ -58,8 +58,7 @@ if [ -f "$LOCAL_SOURCE_DIR/pom.xml" ]; then
 fi
 
 
-# Copy (probably binary) artifacts from the 
-/
+# Copy (probably binary) artifacts from the deployments/
 # directory to the $DEPLOY_DIR directory for later deployment
 copy_artifacts "deployments"
 
@@ -75,6 +74,8 @@ fi
 
 
 # install appdynamics agent
+echo "whoami:"
+whoami
 curl -H "Accept: application/zip" https://codeload.github.com/jucaf/jws-java-appdynamics/zip/master -o /deployments/appdynamics.zip
 pushd /deployments
 unzip appdynamics.zip
