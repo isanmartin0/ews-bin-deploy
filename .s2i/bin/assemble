@@ -20,7 +20,7 @@ function copy_artifacts() {
 
 # Copy the source for compilation
 cp -ad /tmp/src/* $LOCAL_SOURCE_DIR
-
+whoami
 # If a pom.xml is present, this is a normal build scenario
 # so run maven.
 if [ -f "$LOCAL_SOURCE_DIR/pom.xml" ]; then
