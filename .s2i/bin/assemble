@@ -79,7 +79,7 @@ curl -H "Accept: application/zip" https://codeload.github.com/jucaf/jws-java-app
 pushd /deployments
 unzip appdynamics.zip
     mv jws-java-appdynamics/src/main/docker/appdynamics /deployments
-    keytool -import -trustcacerts -alias avcrAppDProdController -keystore $JAVA_HOME/jre/lib/security/cacerts -file jws-java-appdynamics/src/main/docker/AvantCardRootCertificationAuthority.crt -noprompt -storepass 'changeit'
+    keytool -import -trustcacerts -alias avcrAppDProdController -keystore $JAVA_HOME/jre/lib/security/cacerts -file jws-java-appdynamics-master/src/main/docker/AvantCardRootCertificationAuthority.crt -noprompt -storepass 'changeit'
     rm -rf jws-java-appdynamics
     rm -f appdynamics.zip
 popd
