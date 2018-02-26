@@ -62,6 +62,7 @@ fi
 # directory to the $DEPLOY_DIR directory for later deployment
 copy_artifacts "deployments"
 
+  echo " ******* assemble isanmartin0 ********"
   echo " Veer - Custom code for binary deployment"
   # Picks up WAR_FILE_URL from buildConfig
   echo ${WAR_FILE_URL}
