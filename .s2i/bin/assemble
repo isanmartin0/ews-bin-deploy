@@ -70,7 +70,7 @@ copy_artifacts "deployments"
 
 
     echo "**** curl prueba"
-  curl  -v "https://digitalservices.evobanco.com/artifactory/libs-release-local/com/ev/demo-pru-srv/0.0.1-RELEASE/demo-pru-srv-0.0.4-RELEASE.war" -H "X-JFrog-Art-Api:${ARTIFACTORY_TOKEN}"
+#  curl  -v "https://digitalservices.evobanco.com/artifactory/libs-release-local/com/ev/demo-pru-srv/0.0.1-RELEASE/demo-pru-srv-0.0.4-RELEASE.war" -H "X-JFrog-Art-Api:${ARTIFACTORY_TOKEN}"
 
   curl -o ${DEPLOY_DIR}/ROOT.war -O ${WAR_FILE_URL} -H "X-JFrog-Art-Api:${ARTIFACTORY_TOKEN}"
 
